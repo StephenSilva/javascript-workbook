@@ -25,22 +25,102 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+  // check the rows of the board for a match
+  if (
+      board [0] [0] === playerTurn && 
+      board [0] [1] === playerTurn &&
+      board [0] [2] === playerTurn
+      ) {
+        return true;
+      } else if (
+        board [1] [0] === playerTurn && 
+        board [1] [1] === playerTurn &&
+        board [1] [2] === playerTurn 
+      ) {
+        return true;
+      } else if (
+        board [2] [0] === playerTurn && 
+        board [2] [1] === playerTurn &&
+        board [2] [2] === playerTurn 
+      ) {
+        return true;
+      } 
+        return false;
+      
+
 }
 
 function verticalWin() {
   // Your code here
+  // check the columns of the board for a match
+
+  if (
+    board [0] [0] === playerTurn && 
+    board [1] [0] === playerTurn &&
+    board [2] [0] === playerTurn
+    ) {
+      return true;
+    } else if (
+      board [0] [1] === playerTurn && 
+      board [1] [1] === playerTurn &&
+      board [2] [1] === playerTurn 
+    ) {
+      return true;
+    } else if (
+      board [0] [2] === playerTurn && 
+      board [1] [2] === playerTurn &&
+      board [2] [2] === playerTurn 
+    ) {
+      return true;
+    } 
+      return false;
 }
 
 function diagonalWin() {
   // Your code here
+  // check for an line pattern on the board top left to bottom right
+  // check for a line pattern  top right to bottom left on board
+  if (
+    board [0] [0] === playerTurn && 
+    board [1] [1] === playerTurn &&
+    board [2] [2] === playerTurn
+    ) {
+      return true;
+    } else if (
+      board [0] [2] === playerTurn && 
+      board [1] [1] === playerTurn &&
+      board [2] [0] === playerTurn 
+    ) {
+      return true;
+    } 
+      return false;
 }
 
 function checkForWin() {
   // Your code here
+  // check for horizontal, vertical, and diagonol wins
+  // return true if any of those checks return true
+  if (horizontalWin || verticalWin || diagonalWin === true
+    ) {
+      return true;
+    }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  // manipulate the board (place an X or O) array based on the user input (row, column)
+  // manipulate the playerTurn variable and switch from either X to O  or  O to X
+  let selectedRow = board[row];
+  selectedRow[column] = playerTurn;
+
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else if (playerTurn === 'O') {
+    playerTurn = 'X';
+  }
+
+
+
 }
 
 function getPrompt() {
